@@ -22,6 +22,6 @@ z_spherical = fbs.generate_spherical_fractional_brownian_surface(n_x=2048, H=0.7
 
 Example results
 --------
-![](example_spherical_fractional_brownian_surface.png)
+![](example_sfbs_proj_ortho.png)
 
-![](example_planar_fractional_brownian_surface.png)
+![](example_pfbs.png)
