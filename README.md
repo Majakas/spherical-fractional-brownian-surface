@@ -16,8 +16,12 @@ Usage
 ```py
 import fbs
 
-z_planar = fbs.generate_planar_fractional_brownian_surface(n_x=1600, n_y=900, H=0.7, num_components=50, seed=7)
-z_spherical = fbs.generate_spherical_fractional_brownian_surface(n_x=2048, H=0.7, num_components=50, seed=13)
+plane = fbs.PlanarFractionalBrownianSurface(a_x=1, a_y=1, H=0.5, num_components=50, seed=7)
+z_planar = plane.evaluate_grid(n_x=1600, n_y=900)
+z_planar_points = plane.evaluate_points(np.array([0.2, 0.5]), np.array([0.5, 0.5]))
+
+sphere = fbs.SphericalFractionalBrownianSurface(n_fbm=2048*64, H=0.7, num_components=50, seed=13)
+z_spherical = sphere.evaluate_equilateral(n_x=1024, n_threads=2)
 ```
 
 Example results
