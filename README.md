@@ -6,9 +6,10 @@ and latitude) but also planar fractional Brownian surfaces. The surfaces tend to
 
 ## Theory
 
-The surfaces are generated using the [turning bands method](https://doi.org/10.1029/WR018i005p01379). Instead of simulating the two-dimensional surface directly, multiple one-dimensional fractional Brownian motions (fBms) are simulated along several lines at different orientations. The resulting field is obtained by the sum of the values of the one-dimensional fBms along the respective positions along each line. 
+The surfaces are generated using the [turning bands method](https://doi.org/10.1029/WR018i005p01379) which has been adapted to a spherical surface. Instead of simulating the two-dimensional surface directly, multiple one-dimensional fractional Brownian motions (fBms) are simulated along several lines at different orientations. The resulting field is obtained by the sum of the values of the one-dimensional fBms along the respective positions along each line. 
 
-In the planar case, the lines are spaced evenly on the unit circle (for discussion on the benefits over randomly spaced lines, see the original paper) and for the spherical case, the lines are oriented randomly on the unit sphere.
+In the planar case, the lines are spaced evenly on the unit circle (for discussion on the benefits over randomly spaced lines, see the original paper) and for the spherical case, the lines are oriented randomly on the unit sphere. The main modification to the original method in the spherical case is that when calculating the contribution of the line pointing at $\vec n$ with a fBm $f(\vec x)$ to a point on the sphere at position $\vec x$ ($|\vec x| = 1$), we don't take the contribution to be $f(\vec n\cdot \vec x)$, but rather $f(\arccos (\vec n\cdot \vec x))$, i.e. we use the great circle distance towards the axis of the line.
+
 
 While this doesn't mathematically result in fractional Brownian surfaces (isotropy isn't satisfied), the limit case of high number of lines does. In practice having in the order of 50+ lines is sufficient. The advantage of the approach over other exact methods (e.g. Stein's method) is its speed and memory usage, mainly due to only needing to simulate one-dimensional processes.
 
